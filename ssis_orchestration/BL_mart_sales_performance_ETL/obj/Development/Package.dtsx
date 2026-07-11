@@ -1,0 +1,2166 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/11/2026 1:07:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-QI6H2EA"
+  DTS:CreatorName="DESKTOP-QI6H2EA\Admin"
+  DTS:DTSID="{2BAE5925-ECEC-439D-AF55-055AF52249A2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{C50BBDB4-8B51-4699-819E-8D0AF212B7CA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BL Mart dwh connection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6BBB8C71-0672-45B4-A93C-4882A7A345B7}"
+      DTS:ObjectName="BL Mart dwh connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-QI6H2EA;Initial Catalog=dwh_BL_mart;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{6BBB8C71-0672-45B4-A93C-4882A7A345B7}DESKTOP-QI6H2EA2;Trust Server Certificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{47E4685C-6F47-443D-85C3-448805A5FAA3}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Admin\Desktop\Data Engeneering Projects\BL Mart sales performance ETL\BL_mart_sales_performance_ETL\raw_data\BrightLearn_Raw_Data.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transaction_date"
+              DTS:DTSID="{5E9FFEF2-8922-45C1-AF38-4391EECDEB02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="payment_method"
+              DTS:DTSID="{6E8DC43B-2B45-44BC-B976-6D48A60DC771}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cashier_name"
+              DTS:DTSID="{13DC6EFB-4F5E-4ED5-B565-751035DB1D37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transaction_amount"
+              DTS:DTSID="{F0470DF0-5948-472A-857F-91C617C3287E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transaction_discount"
+              DTS:DTSID="{B0EAC376-4091-44E6-A7C4-082A755FDA34}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_first_name"
+              DTS:DTSID="{17E6C353-C9E9-445B-9587-307EFB4D7B2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_last_name"
+              DTS:DTSID="{B3690EA4-C9FB-46CF-9E59-D92013375E32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_email"
+              DTS:DTSID="{81E0A69C-4939-4974-908B-9F696BBBB399}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_phone"
+              DTS:DTSID="{BB70BFBF-3212-4EAA-A982-C2DA8F3C8DD3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_city"
+              DTS:DTSID="{5C4BE45F-C7BA-4384-AECB-705C9E0C4D36}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_province"
+              DTS:DTSID="{D3AF6C17-EEA6-479E-929F-21A0BBD3E9EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_loyalty_tier"
+              DTS:DTSID="{4207666E-0969-4B68-870E-F4C5049FB531}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_since"
+              DTS:DTSID="{62612511-3572-4657-AF0A-C0C46DEFA07B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_name"
+              DTS:DTSID="{7BFAF224-25FF-4765-9DF2-485BF5FDA12E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_city"
+              DTS:DTSID="{72A0DCFC-4FA5-42A1-A85E-F3C8660DD5A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_province"
+              DTS:DTSID="{040A7ADD-FB3F-4BE0-A289-DF2BF8B7C8FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_region"
+              DTS:DTSID="{CEEBC99B-1CD1-430F-B6E2-26D2AF7764BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_manager"
+              DTS:DTSID="{ADE442DD-E76C-4B29-9F09-B2CBA54AA48A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_name"
+              DTS:DTSID="{DADF9F83-32B8-49D4-AD9C-7884B2CEFD37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category"
+              DTS:DTSID="{87D4A977-B99A-440D-90B1-E12B32546AC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sub_category"
+              DTS:DTSID="{01FCB3D3-0B80-4853-A1C9-9FD169A67475}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sku"
+              DTS:DTSID="{5204C8D9-D85F-49D4-99F5-91CCE94E75E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit_price"
+              DTS:DTSID="{0C14BF76-D72F-4EFB-8531-9AD86B827DA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cost_price"
+              DTS:DTSID="{901A9BCE-1569-4F3F-8BB5-B6E14639D088}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="supplier"
+              DTS:DTSID="{6EF4B3B9-600E-44FD-A4DF-B08A946CD97F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="qty"
+              DTS:DTSID="{577E9BC4-3035-465C-A1E1-378C209EB286}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="line_amount"
+              DTS:DTSID="{071946F9-579D-4B8B-BADF-2C1E699BA4C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="stock_on_hand"
+              DTS:DTSID="{D2D15A21-8027-4E83-9EA1-D0012026C503}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="reorder_threshold"
+              DTS:DTSID="{5480A83E-C2FB-4B19-B026-CDD9FD836D89}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A198D056-8E38-463D-9ED5-2C890F394323}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Admin\Desktop\Data Engeneering Projects\BL Mart sales performance ETL\BL_mart_sales_performance_ETL\raw_data\BrightLearn_Raw_Data.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transaction_date"
+              DTS:DTSID="{93887617-E57A-49E6-989A-B636C9C2AE6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="payment_method"
+              DTS:DTSID="{656A84F7-15FA-4824-839C-FF45956743C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cashier_name"
+              DTS:DTSID="{53C27AA8-64B9-42C2-A2A1-39A8581D05C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transaction_amount"
+              DTS:DTSID="{AC8AF8C5-611F-4E68-9646-113F2FC11C29}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transaction_discount"
+              DTS:DTSID="{7F3C265C-2463-438E-9A0B-7E6472B49685}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_first_name"
+              DTS:DTSID="{C4520B9E-C756-4363-9641-E7E2B58ADE33}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_last_name"
+              DTS:DTSID="{CF43290B-B685-4A33-8FC3-C4715119C6EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_email"
+              DTS:DTSID="{02A4EC62-383C-4489-B0C7-05502744F3E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_phone"
+              DTS:DTSID="{F00C7218-CE4B-49FD-9239-60112EDE8BC2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_city"
+              DTS:DTSID="{D508D6E0-691F-414E-B0AB-72109C9E23FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_province"
+              DTS:DTSID="{6531E64A-4E73-4ECF-962C-D045ABF8D65C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_loyalty_tier"
+              DTS:DTSID="{656AA600-8EF9-4863-A3C0-B3FDB166E4CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_since"
+              DTS:DTSID="{DD3F7027-0C62-4479-9BB0-C45F10831D40}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_name"
+              DTS:DTSID="{3BC0F4B6-87C2-4025-ADEA-FB7135C78418}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_city"
+              DTS:DTSID="{1D099598-98AA-43A0-B795-35A1B54128CD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_province"
+              DTS:DTSID="{F5EF7E0D-9A73-4631-9EA0-3D846969F7F2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_region"
+              DTS:DTSID="{101A9F86-39E9-4A5D-834C-5C67E8E7C708}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_manager"
+              DTS:DTSID="{2D6754A4-642A-4867-9BAA-BDB613BA458B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_name"
+              DTS:DTSID="{2D568B79-4FDB-4ADF-A0DB-02FE72F52580}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category"
+              DTS:DTSID="{949728C2-6E0E-4E13-A65B-470B1ECF50BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sub_category"
+              DTS:DTSID="{1D22EF7F-06BC-453E-A049-0CD40071B63A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sku"
+              DTS:DTSID="{E6D42FA5-DF18-4A4B-BCDF-EBEF93D252FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit_price"
+              DTS:DTSID="{39E3E87D-ED08-4802-A661-832AD0E149A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cost_price"
+              DTS:DTSID="{7D033550-A744-4A3C-A9F5-4CDFFC7CEB35}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="supplier"
+              DTS:DTSID="{1417706C-A745-4C91-8980-0BB5A1832A94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="qty"
+              DTS:DTSID="{CDEB671C-216B-4AF4-B3A6-74C39C352E3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="line_amount"
+              DTS:DTSID="{5C4ABEE4-A361-4EB5-A922-E87B26606B14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="stock_on_hand"
+              DTS:DTSID="{80BB3956-AF85-4FD3-A2E5-DCF7FE2ED48B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="reorder_threshold"
+              DTS:DTSID="{9D3C3BCC-649D-476B-BA97-41071BEEFF8F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\001 bronze layer"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{96521937-4ED5-4612-8931-2C69EA72B5E3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="001 bronze layer">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\001 bronze layer\001 load data"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1D0084B4-9011-4084-9304-14DEFCE7556D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="001 load data"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\001 bronze layer\001 load data\bronze cust trans table"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="bronze cust trans table"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[bronze].[customer_transactions]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\001 bronze layer\001 load data\bronze cust trans table.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[BL Mart dwh connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[BL Mart dwh connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[transaction_date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="transaction_date"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_date]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_date]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[payment_method]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="payment_method"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[payment_method]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[payment_method]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[cashier_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="cashier_name"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[cashier_name]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[cashier_name]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[transaction_amount]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="transaction_amount"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_amount]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_amount]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[transaction_discount]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="transaction_discount"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_discount]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_discount]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_first_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_first_name"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_first_name]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_first_name]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_last_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_last_name"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_last_name]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_last_name]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_email]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_email"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_email]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_email]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_phone]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_phone"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_phone]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_phone]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_city]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_city"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_city]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_province]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_province"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_province]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_province]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_loyalty_tier]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_loyalty_tier"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_loyalty_tier]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_loyalty_tier]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[customer_since]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="customer_since"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_since]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_since]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[store_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="store_name"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_name]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_name]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[store_city]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="store_city"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_city]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_city]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[store_province]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="store_province"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_province]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_province]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[store_region]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="store_region"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_region]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_region]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[store_manager]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="store_manager"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_manager]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_manager]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[product_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="product_name"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[product_name]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[product_name]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[category]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="category"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[category]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[sub_category]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="sub_category"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[sub_category]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[sub_category]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[sku]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="sku"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[sku]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[unit_price]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="unit_price"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[unit_price]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[cost_price]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="cost_price"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[cost_price]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[cost_price]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[supplier]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="supplier"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[supplier]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[supplier]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[qty]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="qty"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[qty]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[qty]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[line_amount]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="line_amount"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[line_amount]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[line_amount]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[stock_on_hand]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="stock_on_hand"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[stock_on_hand]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[stock_on_hand]" />
+                        <inputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].Columns[reorder_threshold]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="reorder_threshold"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[reorder_threshold]"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[reorder_threshold]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_id]"
+                          dataType="i4"
+                          name="transaction_id" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_date]"
+                          dataType="dbTimeStamp"
+                          name="transaction_date" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[payment_method]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="payment_method" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[cashier_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="cashier_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_amount]"
+                          dataType="numeric"
+                          name="transaction_amount"
+                          precision="32"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_discount]"
+                          dataType="numeric"
+                          name="transaction_discount"
+                          precision="32"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="customer_first_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="customer_last_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="customer_email" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_phone]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_phone" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_city" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_province]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_province" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_loyalty_tier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_loyalty_tier" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[customer_since]"
+                          dataType="dbDate"
+                          name="customer_since" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="store_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_city" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_province]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_province" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_region]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_region" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[store_manager]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_manager" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[product_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="product_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="category" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[sub_category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="sub_category" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="sku" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
+                          dataType="numeric"
+                          name="unit_price"
+                          precision="32"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[cost_price]"
+                          dataType="numeric"
+                          name="cost_price"
+                          precision="32"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[supplier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="supplier" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[qty]"
+                          dataType="i4"
+                          name="qty" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[line_amount]"
+                          dataType="numeric"
+                          name="line_amount"
+                          precision="32"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[stock_on_hand]"
+                          dataType="i4"
+                          name="stock_on_hand" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[reorder_threshold]"
+                          dataType="i4"
+                          name="reorder_threshold" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[created_at]"
+                          dataType="dbTimeStamp"
+                          name="created_at" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input].ExternalColumns[updated_at]"
+                          dataType="dbTimeStamp"
+                          name="updated_at" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\001 bronze layer\001 load data\bronze cust trans table.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\001 bronze layer\001 load data\bronze cust trans table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\bronze cust trans table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\001 bronze layer\001 load data\bronze cust trans table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\001 bronze layer\001 load data\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\001 bronze layer\001 load data\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[transaction_date]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_date]"
+                          name="transaction_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[payment_method]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[payment_method]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[payment_method]"
+                          name="payment_method"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[cashier_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cashier_name]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[cashier_name]"
+                          name="cashier_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_amount]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[transaction_amount]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_amount]"
+                          name="transaction_amount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_discount]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[transaction_discount]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[transaction_discount]"
+                          name="transaction_discount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_first_name]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_first_name]"
+                          name="customer_first_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_last_name]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_last_name]"
+                          name="customer_last_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_email]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_email]"
+                          name="customer_email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_phone]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_phone]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_phone]"
+                          name="customer_phone"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_city]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_city]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_city]"
+                          name="customer_city"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_province]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_province]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_province]"
+                          name="customer_province"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_loyalty_tier]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_loyalty_tier]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_loyalty_tier]"
+                          name="customer_loyalty_tier"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_since]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_since]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[customer_since]"
+                          name="customer_since"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_name]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_name]"
+                          name="store_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_city]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_city]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_city]"
+                          name="store_city"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_province]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_province]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_province]"
+                          name="store_province"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_region]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_region]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_region]"
+                          name="store_region"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_manager]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_manager]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[store_manager]"
+                          name="store_manager"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[product_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[product_name]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[product_name]"
+                          name="product_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[category]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[category]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[category]"
+                          name="category"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[sub_category]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sub_category]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[sub_category]"
+                          name="sub_category"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[sku]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sku]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[sku]"
+                          name="sku"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[unit_price]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[unit_price]"
+                          name="unit_price"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[cost_price]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cost_price]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[cost_price]"
+                          name="cost_price"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[supplier]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[supplier]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[supplier]"
+                          name="supplier"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[qty]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[qty]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[qty]"
+                          name="qty"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[line_amount]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[line_amount]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[line_amount]"
+                          name="line_amount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[stock_on_hand]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[stock_on_hand]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[stock_on_hand]"
+                          name="stock_on_hand"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[reorder_threshold]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[reorder_threshold]"
+                          length="50"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].Columns[reorder_threshold]"
+                          name="reorder_threshold"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[transaction_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="transaction_date" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[payment_method]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="payment_method" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cashier_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="cashier_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[transaction_amount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="transaction_amount" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[transaction_discount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="transaction_discount" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_first_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_last_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_email" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_phone]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_phone" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_city" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_province]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_province" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_loyalty_tier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_loyalty_tier" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customer_since]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="customer_since" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_city" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_province]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_province" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_region]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_region" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_manager]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="store_manager" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[product_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="product_name" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="category" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sub_category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="sub_category" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[sku]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="sku" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="unit_price" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cost_price]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="cost_price" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[supplier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="supplier" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[qty]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="qty" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[line_amount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="line_amount" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[stock_on_hand]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="stock_on_hand" />
+                        <externalMetadataColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[reorder_threshold]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="reorder_threshold" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\001 bronze layer\001 load data.Paths[Flat File Source Output]"
+                  endId="Package\001 bronze layer\001 load data\bronze cust trans table.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\001 bronze layer\001 load data\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\002 data quality and cleaning"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B81495D4-E27F-41B8-81EB-50495CA64F4B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="002 data quality and cleaning">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\003 silver layer"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{33052815-D632-4B16-80AA-C8B925B59D7B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="003 silver layer">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\004 gold layer"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A2ECF85A-4741-4258-A667-AADD677DEB1F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="004 gold layer">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="145,42"
+          Id="Package\001 bronze layer\001 load data"
+          TopLeft="30,17" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="445,237"
+          Size="445,280"
+          Id="Package\001 bronze layer"
+          TopLeft="105,39" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="336,136"
+          Size="336,179"
+          Id="Package\003 silver layer"
+          TopLeft="98,396" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="355,109"
+          Size="355,152"
+          Id="Package\002 data quality and cleaning"
+          TopLeft="644,46" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="402,130"
+          Size="402,173"
+          Id="Package\004 gold layer"
+          TopLeft="578,410" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\001 bronze layer\001 load data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\001 bronze layer\001 load data\bronze cust trans table"
+          TopLeft="157,381" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\001 bronze layer\001 load data\Flat File Source"
+          TopLeft="136,85" />
+        <EdgeLayout
+          Id="Package\001 bronze layer\001 load data.Paths[Flat File Source Output]"
+          TopLeft="214,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38,254"
+              Start="0,0"
+              End="38,246.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,123"
+                    Point2="0,127"
+                    Point3="4,127" />
+                  <mssgle:LineSegment
+                    End="34,127" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34,127"
+                    Point2="38,127"
+                    Point3="38,131" />
+                  <mssgle:LineSegment
+                    End="38,246.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\001 bronze layer\001 load data\bronze cust trans table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

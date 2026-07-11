@@ -39,3 +39,5 @@ Run this script to re-define the DDL structure of 'bronze' Tables*/
     created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME NULL
 );
+
+SELECT * FROM bronze.customer_transactions
