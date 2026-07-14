@@ -8,20 +8,8 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    ;WITH Deduplicated AS
-    (
-        SELECT *,
-               ROW_NUMBER() OVER
-               (
-                   PARTITION BY transaction_id
-                   ORDER BY transaction_date DESC
-               ) AS rn
-        FROM [bronze].[customer_transactions]
-    )
-
     INSERT INTO [silver].[customer_transactions]
     (
-        transaction_id,
         transaction_date,
         payment_method,
         cashier_name,
@@ -54,8 +42,6 @@ BEGIN
     )
 
     SELECT
-
-        transaction_id,
         transaction_date,
         TRIM(payment_method),
         TRIM(cashier_name),
@@ -86,8 +72,10 @@ BEGIN
         stock_on_hand,
         reorder_threshold
 
-    FROM Deduplicated
-    WHERE rn = 1;
+    FROM [bronze].[customer_transactions]
 
 END;
 GO
+
+EXECUTE [dwh_BL_mart].[silver].[sp_Load_Customer_Transactions]
+
