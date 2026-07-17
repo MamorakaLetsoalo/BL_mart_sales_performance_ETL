@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{963834E9-8281-4575-949B-71D82F6DA4FC}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{97925AA7-64DB-4902-9C93-F9EB174A68AD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -597,6 +597,7 @@
       DTS:refId="Package\001 bronze layer"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{96521937-4ED5-4612-8931-2C69EA72B5E3}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -2019,21 +2020,10 @@
       </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\002 data quality and cleaning"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:Disabled="True"
-      DTS:DTSID="{B81495D4-E27F-41B8-81EB-50495CA64F4B}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="002 data quality and cleaning">
-      <DTS:Variables />
-      <DTS:Executables />
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\003 silver layer"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{33052815-D632-4B16-80AA-C8B925B59D7B}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -2086,7 +2076,134 @@
               SQLTask:SqlStatementSource="EXECUTE gold.sp_Load_Dim_Customer" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\004 gold layer\load dim date"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E5F351A0-D434-4F5F-87CD-8AD77A96682B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load dim date"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6BBB8C71-0672-45B4-A93C-4882A7A345B7}"
+              SQLTask:SqlStatementSource="EXEC gold.sp_Load_Dim_Date" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\004 gold layer\load dim inventory"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CA906D8E-A559-4731-880D-B0F1EBF5D8C3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load dim inventory"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6BBB8C71-0672-45B4-A93C-4882A7A345B7}"
+              SQLTask:SqlStatementSource="EXEC gold.sp_Load_dim_inventory" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\004 gold layer\load dim product"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{445ED443-7986-4340-A905-D6866E04FEFB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load dim product"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6BBB8C71-0672-45B4-A93C-4882A7A345B7}"
+              SQLTask:SqlStatementSource="EXEC gold.sp_Load_Dim_Product" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\004 gold layer\load dim store"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5CA76449-713E-4A0F-B1AA-74F9A599E86A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load dim store"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6BBB8C71-0672-45B4-A93C-4882A7A345B7}"
+              SQLTask:SqlStatementSource="EXEC gold.sp_Load_Dim_Store" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\004 gold layer\load dim supplier"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BD2F4782-20A7-4F10-9F67-393A4A86D1FA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load dim supplier"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6BBB8C71-0672-45B4-A93C-4882A7A345B7}"
+              SQLTask:SqlStatementSource="EXEC gold.sp_Load_Dim_Supplier" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\004 gold layer.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{35F9DD9A-B117-4A48-939A-66152DC6D606}"
+          DTS:From="Package\004 gold layer\load dim date"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\004 gold layer\load dim customer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\004 gold layer.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{725A479B-BFA0-4BD4-95FA-D20104D9BE3F}"
+          DTS:From="Package\004 gold layer\load dim customer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\004 gold layer\load dim product" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\004 gold layer.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{A6E67E3A-559A-46D9-8F05-6D563166AE64}"
+          DTS:From="Package\004 gold layer\load dim product"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\004 gold layer\load dim store" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\004 gold layer.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{3F34253A-953E-427E-9672-C4C22138B0E2}"
+          DTS:From="Package\004 gold layer\load dim store"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\004 gold layer\load dim supplier" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\004 gold layer.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{79823DA3-FDB9-4169-9BFF-E00CC273C252}"
+          DTS:From="Package\004 gold layer\load dim supplier"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\004 gold layer\load dim inventory" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -2118,7 +2235,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="145,42"
           Id="Package\001 bronze layer\001 load data"
@@ -2126,17 +2243,10 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="342,198"
-          Size="342,241"
+          PanelSize="342,157"
+          Size="342,200"
           Id="Package\001 bronze layer"
-          TopLeft="105,39" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="355,109"
-          Size="355,152"
-          Id="Package\002 data quality and cleaning"
-          TopLeft="668,98" />
+          TopLeft="105,41" />
         <NodeLayout
           Size="170,42"
           Id="Package\003 silver layer\sp load silver table"
@@ -2144,35 +2254,165 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="336,136"
-          Size="336,179"
+          PanelSize="336,180"
+          Size="336,223"
           Id="Package\003 silver layer"
-          TopLeft="104,309" />
+          TopLeft="104,272" />
         <NodeLayout
           Size="170,42"
           Id="Package\004 gold layer\load dim customer"
-          TopLeft="99,17" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="402,147"
-          Size="402,190"
-          Id="Package\004 gold layer"
-          TopLeft="553,356" />
+          TopLeft="241,20" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\004 gold layer\load dim product"
+          TopLeft="241,107" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\004 gold layer\load dim store"
+          TopLeft="21,107" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\004 gold layer\load dim date"
+          TopLeft="19,19" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\004 gold layer\load dim supplier"
+          TopLeft="24,191" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\004 gold layer\load dim inventory"
+          TopLeft="247,187" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="274,280">
+          Id="Package\004 gold layer.PrecedenceConstraints[Constraint]"
+          TopLeft="198,40.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29"
+              EndConnector="43,0"
               Start="0,0"
-              End="0,21.5">
+              End="35.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\004 gold layer.PrecedenceConstraints[Constraint 1]"
+          TopLeft="326,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\004 gold layer.PrecedenceConstraints[Constraint 2]"
+          TopLeft="241,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-41,0"
+              Start="0,0"
+              End="-33.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-33.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\004 gold layer.PrecedenceConstraints[Constraint 3]"
+          TopLeft="112,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\004 gold layer.PrecedenceConstraints[Constraint 4]"
+          TopLeft="203,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44,0"
+              Start="0,0"
+              End="36.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="525,411"
+          Size="525,454"
+          Id="Package\004 gold layer"
+          TopLeft="548,50" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="274,241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2183,30 +2423,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="440,398.5">
+          TopLeft="440,383.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="113,52.5"
+              EndConnector="108,-106.5"
               Start="0,0"
-              End="105.5,52.5">
+              End="100.5,-106.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="52.5,0" />
+                    End="50,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="52.5,0"
-                    Point2="56.5,0"
-                    Point3="56.5,4" />
+                    Point1="50,0"
+                    Point2="54,0"
+                    Point3="54,-4" />
                   <mssgle:LineSegment
-                    End="56.5,48.5" />
+                    End="54,-102.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="56.5,48.5"
-                    Point2="56.5,52.5"
-                    Point3="60.5,52.5" />
+                    Point1="54,-102.5"
+                    Point2="54,-106.5"
+                    Point3="58,-106.5" />
                   <mssgle:LineSegment
-                    End="105.5,52.5" />
+                    End="100.5,-106.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
