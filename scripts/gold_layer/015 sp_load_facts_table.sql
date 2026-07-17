@@ -1,46 +1,68 @@
-SELECT
-    LOWER(TRIM(customer_email)) AS customer_email,
-    COUNT(*) AS TotalRows
-FROM gold.dim_customer
-GROUP BY LOWER(TRIM(customer_email))
-HAVING COUNT(*) > 1;
+CREATE OR ALTER PROCEDURE gold.sp_Load_Dim_Product
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-SELECT
-    UPPER(TRIM(sku)) AS sku,
-    COUNT(*) AS TotalRows
-FROM gold.dim_product
-GROUP BY UPPER(TRIM(sku))
-HAVING COUNT(*) > 1;
+    BEGIN TRY
 
-SELECT
-    TRIM(supplier_name) AS supplier_name,
-    COUNT(*) AS TotalRows
-FROM gold.dim_supplier
-GROUP BY TRIM(supplier_name)
-HAVING COUNT(*) > 1;
+        -- Full Refresh
 
-SELECT
-    TRIM(store_name),
-    TRIM(store_city),
-    TRIM(store_province),
-    COUNT(*) AS TotalRows
-FROM gold.dim_store
-GROUP BY
-    TRIM(store_name),
-    TRIM(store_city),
-    TRIM(store_province)
-HAVING COUNT(*) > 1;
+        ;WITH ProductCTE AS
+        (
+            SELECT
+                sku,
+                product_name,
+                category,
+                sub_category,
+                supplier,
+                unit_price,
+                cost_price,
+                reorder_threshold,
+                transaction_id,
+                ROW_NUMBER() OVER
+                (
+                    PARTITION BY UPPER(TRIM(sku))
+                    ORDER BY transaction_id
+                ) AS rn
+            FROM silver.customer_transactions
+            WHERE sku IS NOT NULL
+        )
 
-SELECT
-    UPPER(TRIM(sku)) AS sku,
-    COUNT(*) AS TotalRows
-FROM gold.dim_inventory
-GROUP BY UPPER(TRIM(sku))
-HAVING COUNT(*) > 1;
+        INSERT INTO gold.dim_product
+        (
+            sku,
+            product_name,
+            category,
+            sub_category,
+            supplier,
+            unit_price,
+            cost_price,
+            reorder_threshold
+        )
 
-SELECT
-    UPPER(TRIM(sku)) AS sku,
-    COUNT(*) AS TotalRows
-FROM gold.dim_inventory
-GROUP BY UPPER(TRIM(sku))
-HAVING COUNT(*) > 1;
+        SELECT
+            UPPER(TRIM(sku)),
+            TRIM(product_name),
+            TRIM(category),
+            TRIM(sub_category),
+            TRIM(supplier),
+            unit_price,
+            cost_price,
+            reorder_threshold
+        FROM ProductCTE
+        WHERE rn = 1;
+
+        PRINT 'Product Dimension loaded successfully.';
+
+    END TRY
+
+    BEGIN CATCH
+
+        PRINT 'Error loading Product Dimension: ' + ERROR_MESSAGE();
+
+        THROW;
+
+    END CATCH
+
+END;
+GO
