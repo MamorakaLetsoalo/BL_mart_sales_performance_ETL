@@ -1,20 +1,10 @@
-TRUNCATE TABLE bronze.customer_transactions
+--Data cleaning 
+--Check for invalid email address
+SELECT *
+FROM dwh_BL_mart.bronze.customer_transactions
+WHERE customer_email NOT LIKE '%@%.%'
+OR customer_email IS NULL
+OR customer_email='';
 
-TRUNCATE TABLE silver.customer_transactions
 
--- Truncate Fact Table
-TRUNCATE TABLE gold.fact_sales;
 
--- Truncate Dimension Tables
-
-TRUNCATE TABLE gold.dim_customer;
-
-TRUNCATE TABLE gold.dim_product;
-
-TRUNCATE TABLE gold.dim_store;
-
-TRUNCATE TABLE gold.dim_supplier;
-
-TRUNCATE TABLE gold.dim_inventory;
-
-TRUNCATE TABLE gold.dim_date;
