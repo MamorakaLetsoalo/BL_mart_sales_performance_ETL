@@ -1,20 +1,21 @@
-/* 
-script porpose : this dtored ptocedure performs the ETL process to populate the silver schema tables from bronze schema.
-Actions perforemed:
-          -inserts transformed and cleansed data from bronze into silver tables*/
+--Store procedure to load silver table
 
-CREATE OR ALTER PROCEDURE [silver].[sp_Load_Customer_Transactions]
+
+CREATE OR ALTER PROCEDURE silver.sp_Load_Customer_Transactions
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    INSERT INTO [silver].[customer_transactions]
+    -- Clear the Silver table
+    TRUNCATE TABLE silver.customer_transactions;
+
+    -- Load cleaned data
+    INSERT INTO silver.customer_transactions
     (
         transaction_date,
         payment_method,
         cashier_name,
         transaction_amount,
-        transaction_discount,
         customer_first_name,
         customer_last_name,
         customer_email,
@@ -41,41 +42,72 @@ BEGIN
         reorder_threshold
     )
 
-    SELECT
-        transaction_date,
-        TRIM(payment_method),
-        TRIM(cashier_name),
-        transaction_amount,
-        transaction_discount,
-        TRIM(customer_first_name),
-        TRIM(customer_last_name),
-        LOWER(TRIM(customer_email)),
-        TRIM(customer_phone),
-        TRIM(customer_city),
-        TRIM(customer_province),
-        TRIM(customer_loyalty_tier),
+    SELECT DISTINCT
+
+        CAST(transaction_date AS DATE) AS transaction_date,
+
+        -- Standardize payment method
+        CASE
+            WHEN UPPER(LTRIM(RTRIM(payment_method))) = 'CASH' THEN 'Cash'
+            WHEN UPPER(LTRIM(RTRIM(payment_method))) = 'CREDIT CARD' THEN 'Credit Card'
+            WHEN UPPER(LTRIM(RTRIM(payment_method))) = 'DEBIT CARD' THEN 'Debit Card'
+            WHEN UPPER(LTRIM(RTRIM(payment_method))) = 'STORE CREDIT' THEN 'Store Credit'
+            ELSE 'Unknown'
+        END,
+
+        LTRIM(RTRIM(cashier_name)),
+
+        -- Remove negative amounts
+        ABS(transaction_amount),
+
+        LTRIM(RTRIM(customer_first_name)),
+        LTRIM(RTRIM(customer_last_name)),
+
+        -- Clean email
+        CASE
+            WHEN customer_email LIKE '%@%.%'
+                THEN LOWER(LTRIM(RTRIM(customer_email)))
+            ELSE NULL
+        END,
+
+        LTRIM(RTRIM(customer_phone)),
+        LTRIM(RTRIM(customer_city)),
+        LTRIM(RTRIM(customer_province)),
+
+        ISNULL(customer_loyalty_tier,'Unknown'),
+
         customer_since,
-        TRIM(store_name),
-        TRIM(store_city),
-        TRIM(store_province),
-        TRIM(store_region),
-        TRIM(store_manager),
-        TRIM(product_name),
-        TRIM(category),
-        TRIM(sub_category),
-        UPPER(TRIM(sku)),
+
+        LTRIM(RTRIM(store_name)),
+        LTRIM(RTRIM(store_city)),
+        LTRIM(RTRIM(store_province)),
+        LTRIM(RTRIM(store_region)),
+        LTRIM(RTRIM(store_manager)),
+
+        LTRIM(RTRIM(product_name)),
+
+        ISNULL(category,'Unknown'),
+        ISNULL(sub_category,'Unknown'),
+
+        LTRIM(RTRIM(sku)),
+
         unit_price,
         cost_price,
-        TRIM(supplier),
+
+        LTRIM(RTRIM(supplier)),
+
         qty,
-        line_amount,
+
+        -- Recalculate line amount
+        qty * unit_price,
+
         stock_on_hand,
         reorder_threshold
 
-    FROM [bronze].[customer_transactions]
+    FROM bronze.customer_transactions
+
+    WHERE
+        transaction_amount > 0
+        AND qty > 0;
 
 END;
-GO
-
-EXECUTE [dwh_BL_mart].[silver].[sp_Load_Customer_Transactions]
-
