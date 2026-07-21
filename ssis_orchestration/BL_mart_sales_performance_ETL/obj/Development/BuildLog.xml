@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>BL_mart_sales_performance_ETL</Name>
-    <LastWriteTime>2026-07-11T11:53:09.3246335Z</LastWriteTime>
+    <LastWriteTime>2026-07-17T19:45:51.4689879Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Package.dtsx</Name>
-      <LastWriteTime>2026-07-17T18:28:45.5993577Z</LastWriteTime>
+      <Name>BL Mart ETL.dtsx</Name>
+      <LastWriteTime>2026-07-21T18:38:17.1772795Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
