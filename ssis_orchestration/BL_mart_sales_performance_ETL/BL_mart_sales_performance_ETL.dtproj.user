@@ -9,7 +9,7 @@
         <WinAuthUserName />
         <WinAuthDomain />
         <ServerName>DESKTOP-QI6H2EA</ServerName>
-        <PathOnServer>/SSISDB/BL_Mart/BL_mart_sales_performance_ETL</PathOnServer>
+        <PathOnServer>/SSISDB/BL_Mart 2/BL_mart_sales_performance_ETL</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

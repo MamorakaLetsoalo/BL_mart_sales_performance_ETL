@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="BL Mart ETL"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{3FDFE16A-8B9B-49C4-82A9-C2C0E0B7ABA7}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{130EBC43-4E2D-48B6-95AF-5E142FE9FF31}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2258,7 +2258,7 @@
         <NodeLayout
           Size="145,42"
           Id="Package\001 bronze layer\001 load data"
-          TopLeft="86,69" />
+          TopLeft="84,34" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
