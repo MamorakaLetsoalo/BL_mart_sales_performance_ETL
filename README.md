@@ -125,6 +125,9 @@ The Gold Layer implements a Star Schema optimized for analytical querying.
 
 ## ETL Process
 
+<img width="1019" height="517" alt="image" src="https://github.com/user-attachments/assets/a82948dc-8c3d-410f-ab40-3d45dd6ffe65" />
+
+
 ### Bronze Layer
 
 * Load raw CSV files into SQL Server
