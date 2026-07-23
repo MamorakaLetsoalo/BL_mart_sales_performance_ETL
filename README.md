@@ -69,6 +69,10 @@ The solution follows the **Medallion Architecture** (Bronze, Silver, Gold) and i
 
 The pipeline is structured according to the Medallion Architecture pattern, progressively refining data from raw ingestion through to analytics ready models.
 
+
+<img width="524" height="809" alt="image" src="https://github.com/user-attachments/assets/6f665a30-5637-4432-98a7-5e6b504ea762" />
+
+
 ```text
 Raw CSV Files
       |
@@ -196,17 +200,6 @@ BL_Mart_Sales_Performance_ETL
 
 ---
 
-## Getting Started
-
-1. Clone the repository to your local machine
-2. Restore the raw CSV files into the `raw_data` directory
-3. Execute the Bronze layer scripts in `database_scripts/Bronze`
-4. Execute the Silver layer scripts in `database_scripts/Silver`
-5. Execute the Gold layer scripts in `database_scripts/Gold`
-6. Run the SSIS packages in `ssis_orchestration` to orchestrate the pipeline
-7. Open the Power BI file in `powerbi_dashboard` and refresh the data source
-
----
 
 ## Author
 
